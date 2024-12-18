@@ -45,20 +45,68 @@ a {
 /* Nav */
 
 nav {
-    width: 100%;
-    max-width: 32rem;
-    margin-right: auto;
-    margin-left: auto;
+  width: 100%;
+  max-width: 32rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12px;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
-.nav_container {
-    display: flex;
+.nav_desktop {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  max-width: 1280px;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.logo_image {
-  margin-top: 1rem;
-  height: 70px;
-  width: 70px;
-  margin-right: 0.75rem;
+.nav_link--logo-link {
+  display: flex;
+  align-items: center;
+  font-weight: 900;
+  font-size: 24px;
+  color: rgb(36, 64, 99);
+  font-style: inherit;
+}
+
+.nav_link--logo-link img {
+  margin-right: 0.75em;
+  width: 2.5rem;
   border-radius: 9999px;
+}
+
+.nav_link--list {
+  display: flex;
+  padding: 16px;
+}
+
+.nav_link--anchor {
+  margin: 0 12px;
+  color: black;
+  font-weight: 700;
+}
+
+.nav_link--anchor-primary {
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-weight: 700;
+}
+
+.background_image {
+  height: 100vh;
+  max-height: 500px;
+  background-image: url("assets/Movie\ theater\ pic.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
