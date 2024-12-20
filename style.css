@@ -44,7 +44,6 @@ a {
 
 /* Nav */
 
-
 nav {
   width: 100%;
   max-width: 32rem;
@@ -56,12 +55,14 @@ nav {
 }
 
 .nav_desktop {
+  position: relative;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   max-width: 1280px;
   align-items: center;
   justify-content: space-between;
+  z-index: 2;
 }
 
 .nav_link--logo-link {
@@ -69,7 +70,7 @@ nav {
   align-items: center;
   font-weight: 900;
   font-size: 24px;
-  color: rgb(36, 64, 99);
+  color: white;
   font-style: inherit;
 }
 
@@ -86,7 +87,7 @@ nav {
 
 .nav_link--anchor {
   margin: 0 12px;
-  color: black;
+  color: white;
   font-weight: 700;
 }
 
@@ -116,4 +117,38 @@ nav {
   align-items: center;
   color: white;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.search_container {
+  display: flex;
+  background-color: rgb(255, 255, 255, 0.8);
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 5px;
+}
+
+.search_container input {
+  width: 300px;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+}
+
+.search_container button {
+  padding: 10px 15px;
+  font-size: 1rem;
+  color: white;
+  background-color: #333;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+.search_container button:hover {
+    background-color: #f60;
 }
