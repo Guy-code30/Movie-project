@@ -7,7 +7,8 @@
   font-size: 20px;
 }
 
-html {
+html,
+body {
   scroll-behavior: smooth;
 }
 
@@ -120,8 +121,9 @@ nav {
 }
 
 .search_container {
+  margin: auto 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   background-color: rgb(255, 255, 255, 0.8);
   border-radius: 9999px;
@@ -141,7 +143,7 @@ nav {
 }
 
 .search_container button {
-  padding: 10px 15px;
+  padding: 22px 30px;
   font-size: 1rem;
   color: white;
   background-color: #333;
@@ -153,8 +155,7 @@ nav {
 }
 
 .search_btn {
-    display: flex;
-    flex-direction: column;
+  display: flex;
 }
 
 .search_container button:hover {
