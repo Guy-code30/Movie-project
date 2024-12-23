@@ -121,7 +121,10 @@ nav {
   align-items: center;
   color: white;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  filter: blur(4px);
+  background-image: rgba(0, 0, 0, 0.8);
 }
+
 
 .search_container {
   margin: auto 0;
