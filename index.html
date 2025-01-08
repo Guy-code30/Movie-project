@@ -12,60 +12,85 @@
   </head>
   <body>
     <section id="landing_page">
-      <nav class="nav_desktop">
-        <a href="" class="nav_link--logo-link">
-          <img
-            src="./assets/StreamVerse Logo (2).webp"
-            alt=""
-            class="nav_link--logo-img"
-          />StreamVerse
-        </a>
-        <ul class="nav_link--list">
-          <li class="nav_link">
-            <a
-              href="#about"
-              class="nav_link--anchor link_hover-effect link_hover-effect--black"
-              >About</a
-            >
-          </li>
-          <li class="nav_link">
-            <a
-              href="#movies"
-              class="nav_link--anchor link_hover-effect link_hover-effect--black"
-              >Find Movies</a
-            >
-          </li>
-          <li class="nav_link">
-            <a
-              href="#pricing"
-              class="nav_link--anchor link_hover-effect link_hover-effect--black"
-              >Pricing</a
-            >
-          </li>
-          <li class="nav_link">
-            <a
-              href="#contact-us"
-              class="nav_link--anchor link_hover-effect link_hover-effect--black"
-              >Contact us</a
-            >
-          </li>
-        </ul>
-      </nav>
-      <div class="browse_container">
-        <h2 class="header_browse">Browse our Movies</h2>
+      <div class="navbar flex flex-col">
+        <nav class="nav_desktop">
+          <a href="" class="nav_link--logo-link">
+            <img
+              src="./assets/StreamVerse Logo (2).webp"
+              alt=""
+              class="nav_link--logo-img"
+            />StreamVerse
+          </a>
+          <ul class="nav_link--list">
+            <li class="nav_link">
+              <a href="#about" class="nav_link--anchor">About</a>
+            </li>
+            <li class="nav_link">
+              <a href="#movies" class="nav_link--anchor">Find Movies</a>
+            </li>
+            <li class="nav_link">
+              <a href="#pricing" class="nav_link--anchor">Pricing</a>
+            </li>
+            <li class="nav_link">
+              <a href="#contact-us" class="nav_link--anchor">Contact us</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="browse_container">
+          <h2 class="header_browse">Browse our Movies</h2>
+        </div>
+        <div class="search_container">
+          <input
+            type="text"
+            id="search"
+            placeholder="Search Movies"
+            class="search_bar"
+          />
+          <button id="search_btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+        <div class="background_image"></div>
       </div>
-      <div class="search_container">
-        <input
-          type="text"
-          id="search"
-          placeholder="Search Movies"
-          class="search_bar"
-        />
-        <button id="search_btn">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
+    </section>
+    <section id="filter">
+      <!-- <div class="progress_bar"> -->
+      <!-- <div class="progress_bar--track"></div> -->
+      <!-- <div class="progress_bar--fill">:after</div> -->
+      <!-- <div class="progress_bar--buffer">:after</div> -->
+      <!-- </div> -->
+      <div class="search_info">
+        <h1 class="search_result">
+          <span class="header_text">Search results:</span>
+        </h1>
+        <div class="year_filter flex flex-col">
+          <h2 class="dates">
+            <span class="header_text"> Year of make: </span>
+            <span class="year_date">2001-2023</span>
+          </h2>
+          <div class="slider_wrapper">
+            <div class="slider">
+              <div class="slider_runway">
+                <div class="slider_bar"></div>
+                <div class="slider_btn--wrapper">
+                  <div class="slider_btn--tooltip"></div>
+                </div>
+                <div class="slider_btn--wrapper">
+                  <div class="slider_btn--tooltip"></div>
+                </div>
+                <div>
+                  <div class="slider_stop slider_mark--stop"></div>
+                  <div class="slider_stop slider_marks--stop"></div>
+                </div>
+            </div>
+            <div class="slider_marks">
+              <div class="slider_marks--text">2001</div>
+              <div class="slider_marks--texts">2023</div>
+            </div>
+        </div>
+          </div>
+        </div>
       </div>
-      <div class="background_image"></div>
     </section>
   </body>
   <script src="index.js"></script>
