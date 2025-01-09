@@ -54,11 +54,6 @@
       </div>
     </section>
     <section id="filter">
-      <!-- <div class="progress_bar"> -->
-      <!-- <div class="progress_bar--track"></div> -->
-      <!-- <div class="progress_bar--fill">:after</div> -->
-      <!-- <div class="progress_bar--buffer">:after</div> -->
-      <!-- </div> -->
       <div class="search_info">
         <h1 class="search_result">
           <span class="header_text">Search results:</span>
@@ -68,26 +63,12 @@
             <span class="header_text"> Year of make: </span>
             <span class="year_date">2001-2023</span>
           </h2>
-          <div class="slider_wrapper">
-            <div class="slider">
-              <div class="slider_runway">
-                <div class="slider_bar"></div>
-                <div class="slider_btn--wrapper">
-                  <div class="slider_btn--tooltip"></div>
-                </div>
-                <div class="slider_btn--wrapper">
-                  <div class="slider_btn--tooltip"></div>
-                </div>
-                <div>
-                  <div class="slider_stop slider_mark--stop"></div>
-                  <div class="slider_stop slider_marks--stop"></div>
-                </div>
-            </div>
-            <div class="slider_marks">
-              <div class="slider_marks--text">2001</div>
-              <div class="slider_marks--texts">2023</div>
-            </div>
-        </div>
+          <select id="filters">
+            <option value="" disabled selected>Sort</option>
+            <option value="OLD_TO_NEW">Year, Old to New</option>
+            <option value="OLD_TO_NEW">Year, New to Old</option>
+            <option value="RATING">Rating</option>
+          </select>
           </div>
         </div>
       </div>
