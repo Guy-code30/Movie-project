@@ -342,3 +342,52 @@ p {
 .movie-card__container {
   padding: 2px 16px;
 }
+
+/*  */
+
+
+/* .back-btn {
+  color: #fff;
+  background-color: black;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+} */
+
+/* .movie {
+  border: 1px solid black;
+  background-color: white;
+  margin: 20px;
+}
+
+.movie__title {
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 1px solid black;
+  padding: 8px;
+}
+
+.movie__body {
+  padding: 0 8px;
+} */
+
+/* .movie__search {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+} */
+
+/* .movie__search--container {
+  display: flex;
+  flex-direction: column;
+} */
+/* 
+.movie__search--label {
+  padding-right: 8px;
+} */

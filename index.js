@@ -6,5 +6,10 @@ async function movies() {
   const movieListEl = document.querySelector(".movielist");
   movieListEl.innerHTML = movieData.map((movie) => movieHTML(movie)).join("");
 }
+movies();
 
-movie();
+
+function showMovie(title) {
+    localStorage.setItem("title", title)
+    window.location.href = `${window.location.origin}/index.html`
+}
