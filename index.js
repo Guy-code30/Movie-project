@@ -34,39 +34,54 @@ async function onSearchChange(event) {
     .join("");
 }
 
-document.getElementById("searchButton").addEventListener("click", function () {
-  const searchInput = document.getElementById("searchInput").value;
-  const resultsDiv = document.getElementById("results");
+const searchInput = document.getElementById("searchInput"); 
+const searchButton = document.getElementById("search_btn"); 
+const movieList = document.querySelector(".movie-list"); 
+const filterDropdown = document.getElementById("filters"); // Event listener for the search button searchButton.addEventListener("click", () => { const query = searchInput.value.trim(); if (query) { fetchMovies(query).then(displayMovies); } else { movieList.innerHTML = "<p>Please enter a movie title to search.</p>"; } });
 
-  if (searchInput) {
-    fetchMovies(searchInput).then((movies) => {
-      movies.forEach((movie) => {
-        const movieDiv = document.createdElement("div");
-        movieDov.className = "movie";
-        movieDiv.innerHTML = `
-        <h2>${movie.Title}</h2>
-        <p>Year: ${movie.Year}</p>
-        <p>Type: ${movie.Type}</p>
-        <p><img src="${movie.Poster}" alt="${movie.Title} Poster"></p>`;
-        resultsDiv.appendChild(movieDiv);
-      });
-    } else {
-        resultsDiv.innerHTML = '<p>No movies found.</p>';
-    }).catch(error => {
-        resultsDiv.innerHTML = '<p>There was an error fetching the movie.';
-    });
-  } else {
-    resultsDiv.innerHTML = '<p>Please enter a movie title to search</p>';
-  }
-});
+const API_KEY = "?apikey=490768e9&s=Fast"
+const BASE_URL = "https://www.omdbapi.com/"
 
 
 async function fetchMovies(query) {
-    const apiKey = (`https://www.omdbapi.com/?${query}&apikey=${490768e9&s=Fast}`);
+    try {
+    const response = await fetch(`${BASE_URL}&apikey=${API_KEY}&${query}`);
     const data = await response.json();
-    if (data.Response === 'True') {
+    if (data.Response === "True") {
         return data.Search;
     } else {
         return [];
     }
 }
+}
+
+
+function displayMovies(movies) {
+    // movieList.innerHTML = "";
+    if (movies.length === 0) {
+        movieList.innerHTML = "<p>No movies found. Please try another search.</p>;";
+        return;
+    }
+    movies.forEach((movie) => {
+        const movieDiv = document.createElement("div"); 
+        movieDiv.className = "movie-card";
+        movieDiv.innerHTML = `
+        <div class="movie_card--container"> 
+        <h2>${movie.Title}</h2> 
+        <p><b>Year:</b> ${movie.Year}</p> 
+        <p><b>Type:</b> ${movie.Type}</p> 
+        <img src="${movie.Poster}" alt="${movie.Title} Poster" /> </div>`;
+        movieList.appendChild(movieDiv);
+
+    });
+}
+
+
+searchButton.addEventListener("click", () => {
+    const query = searchInput.value.trim();
+    if (query) {
+        fetchMovies(query).then(displayMovies);
+    } else {
+        movieList.innerHTML = "<p>Please enter a movie title to search.</p>";
+    }
+});
