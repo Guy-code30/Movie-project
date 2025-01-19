@@ -83,6 +83,7 @@ searchButton.addEventListener("click", () => {
     }
 });
 
+
 // const searchInput = document.getElementById("searchInput");
 
 // const searchButton = document.getElementById("search_btn");
