@@ -39,46 +39,47 @@ const searchButton = document.getElementById("search_btn");
 const movieList = document.querySelector(".movie-list");
 const filterDropdown = document.getElementById("filters");
 
-const API_KEY = "?apikey=490768e9&s=Fast"
-const BASE_URL = "https://www.omdbapi.com/"
+const API_KEY = "?apikey=490768e9&s=Fast";
+const BASE_URL = "https://www.omdbapi.com/";
 
+function displayMovies(movies) {
+  movieList.innerHTML = "";
+  if (movies.length === 0) {
+    movieList.innerHTML = "<p>No movies found. Please try another search.</p>";
+    return;
+  }
+  movies.forEach((movie) => {
+    const movieDiv = document.createElement("div");
+    movieDiv.className = "movie-card";
+    movieDiv.innerHTML = `
+    <div class="movie_card--container">
+    <h2>${movie.Title}</h2>
+    <p><b>Year:</b> ${movie.Year}</p>
+    <p><b>Type:</b> ${movie.Type}</p>
+    <img src="${movie.Poster}" alt="${movie.Title} Poster" /> </div>`;
+    movieList.appendChild(movieDiv);
+  });
+}
 async function fetchMovies(query) {
-    try {
+  try {
     const response = await fetch(`${BASE_URL}&apikey=${API_KEY}&${query}`);
     const data = await response.json();
     if (data.Response === "True") {
-        return data.Search;
+      return data.Search;
     } else {
-        return [];
+      return [];
     }
-}}
-
-function displayMovies(movies) {
-    // movieList.innerHTML = "";
-    if (movies.length === 0) {
-        movieList.innerHTML = "<p>No movies found. Please try another search.</p>;";
-        return;
-    }
-    movies.forEach((movie) => {
-        const movieDiv = document.createElement("div");
-        movieDiv.className = "movie-card";
-        movieDiv.innerHTML = `
-        <div class="movie_card--container">
-        <h2>${movie.Title}</h2>
-        <p><b>Year:</b> ${movie.Year}</p>
-        <p><b>Type:</b> ${movie.Type}</p>
-        <img src="${movie.Poster}" alt="${movie.Title} Poster" /> </div>`;
-        movieList.appendChild(movieDiv);
-
-    });
+  } catch (error) {
+    console.error("Error fetching movies:", error);
+    return [];
+  }
 }
 
 searchButton.addEventListener("click", () => {
-    const query = searchInput.value.trim();
-    if (query) {
-        fetchMovies(query).then(displayMovies);
-    } else {
-        movieList.innerHTML = "<p>Please enter a movie title to search.</p>";
-    }
+  const query = searchInput.value.trim();
+  if (query) {
+    fetchMovies(query).then(displayMovies);
+  } else {
+    movieList.innerHTML = "<p>Please enter a movie title to search.</p>";
+  }
 });
-
