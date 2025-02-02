@@ -1,5 +1,3 @@
-
-
 const searchInput = document.getElementById("searchInput");
 
 const searchButton = document.getElementById("search_btn");
@@ -79,5 +77,60 @@ searchButton.addEventListener("click", () => {
     fetchMovies(query).then(displayMovies);
   } else {
     movieList.innerHTML = "<p>Please enter a movie title to search.</p>";
+  }
+});
+
+// Filters
+
+let currentMovies = [];
+
+// Then in your fetchMovies add currentMovies = data.Search
+
+if (data.Response === "True") {
+  currentMovies = data.Search;
+  return data.Search;
+}
+
+function sortMovies(movies, filterValue) {
+  const sortedMovies = [...movies];
+
+  switch (filterValue) {
+    case "OLD_TO_NEW":
+      sortedMovies.sort((a, b) => parseInt(a.Year) - parseInt(b.Year));
+      break;
+    case "NEW_TO_OLD":
+      sortedMovies.sort((a, b) => parseInt(a.Year) - parseInt(b.Year));
+      break;
+
+    default:
+      break;
+  }
+  return sortedMovies;
+}
+
+// Add eventlisteners
+
+filterDropdown.addEventListener("change", (e) => {
+  const sortedMovies = sortMovies(currentMovies, e.target.value);
+  displayMovies(sortedMovies);
+});
+
+// Search button event listener
+searchButton.addEventListener("click", async () => {
+  const query = searchInput.value.trim();
+  if (query) {
+    const movies = await fetchMovies(query);
+    // Reset the filter dropdown when performing a new search
+    filterDropdown.selectedIndex = 0;
+    displayMovies(movies);
+  } else {
+    movieList.innerHTML = "<p>Please enter a movie title to search.</p>";
+  }
+});
+
+// Enter key on search
+searchInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    searchButton.click();
   }
 });
